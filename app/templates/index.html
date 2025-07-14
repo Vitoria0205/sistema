@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BookiF</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+
+  <style>
+    .jumbotron {
+      background-color: rgba(0, 123, 255, 0.2);
+      padding: 2rem;
+      border-radius: 1rem;
+      color: #000;
+    }
+
+    .navbar-nav .nav-link {
+      color: white !important;
+    }
+
+    .dropdown:hover .dropdown-menu {
+      display: block;
+      margin-top: 0;
+    }
+
+    .dropdown-menu {
+  background-color: rgba(0, 123, 255, 0.4); /* azul com transparência */
+  backdrop-filter: blur(6px);              /* efeito de vidro fosco */
+  border: none;
+}
+
+
+    .dropdown-menu a {
+      color: white !important;
+    }
+
+    .dropdown-menu a:hover {
+      background-color: #0056b3;
+    }
+
+    /* Remove seta (toggle) */
+    .dropdown > .nav-link::after {
+      display: none !important;
+    }
+
+    .card-img-small {
+      max-width: 120px;
+      height: auto;
+    }
+
+    .block {
+      position: relative;
+      transition: background-color 0.3s ease;
+      background-color: rgba(255, 255, 255, 0.8); /* transparência no bloco */
+    }
+
+    .block:hover {
+      background-color: rgba(233, 245, 255, 0.9);
+    }
+
+    .block-link-footer {
+      font-weight: bold;
+      color: #007bff;
+      text-decoration: none;
+      display: none;
+      margin-top: 1rem;
+      transition: transform 0.2s ease;
+    }
+
+    .block:hover .block-link-footer {
+      display: inline-block;
+    }
+
+    .block-link-footer:hover {
+      text-decoration: underline;
+      transform: translateX(5px);
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" href="/">BookiF</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+      <ul class="navbar-nav text-center">
+
+        <!-- MENU PESSOA -->
+        <li class="nav-item dropdown">
+          <a class="nav-link" href="#" id="pessoaDropdown">Pessoa</a>
+          <div class="dropdown-menu" aria-labelledby="pessoaDropdown">
+            <a class="dropdown-item" href="/pessoas/">Pessoa</a>
+            <a class="dropdown-item" href="/ocupacoes/">Ocupações</a>
+            <a class="dropdown-item" href="/cidades/">Cidades</a>
+            <a class="dropdown-item" href="/matriculas/">Matrículas</a>
+            <a class="dropdown-item" href="/cursos/">Cursos</a>
+            <a class="dropdown-item" href="/turnos/">Turnos</a>
+            <a class="dropdown-item" href="/turmas/">Turmas</a>
+          </div>
+        </li>
+
+        <!-- MENU LIVROS -->
+        <li class="nav-item dropdown">
+          <a class="nav-link" href="#" id="livrosDropdown">Livros</a>
+          <div class="dropdown-menu" aria-labelledby="livrosDropdown">
+            <a class="dropdown-item" href="/autores/">Autores</a>
+            <a class="dropdown-item" href="/editoras/">Editoras</a>
+            <a class="dropdown-item" href="/livros/">Livros</a>
+          </div>
+        </li>
+
+        <!-- MENU KIT LIVROS -->
+        <li class="nav-item dropdown">
+          <a class="nav-link" href="#" id="kitDropdown">Kit de Livros</a>
+          <div class="dropdown-menu" aria-labelledby="kitDropdown">
+            <a class="dropdown-item" href="/kitlivros/">Kit de Livros</a>
+            <a class="dropdown-item" href="/kitlivroitens/">Itens do Kit de Livros</a>
+          </div>
+        </li>
+
+        <!-- ITENS DIRETOS -->
+        <li class="nav-item"><a class="nav-link" href="/emprestimos/">Empréstimos</a></li>
+        <li class="nav-item"><a class="nav-link" href="/devolucoes/">Devoluções</a></li>
+        <li class="nav-item"><a class="nav-link" href="/atrasos/">Atrasos</a></li>
+        <li class="nav-item"><a class="nav-link" href="/relatorios/">Relatórios</a></li>
+        <li class="nav-item"><a class="nav-link text-warning" href="/admin/">Administração</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container mt-5">
+    <div class="jumbotron text-center">
+      <h1 class="display-4">Bem-vindo ao BookiF</h1>
+      <p class="lead">Aqui se faz o controle e organização de empréstimos, devoluções e kits de livros didáticos</p>
+      <hr />
+      <p>Utilize o menu acima para navegar pelo sistema.</p>
+    </div>
+  </div>
+
+  <div class="container my-5">
+    <div class="row text-center">
+      
+      <!-- Bloco 1 -->
+      <div class="col-md-4 mb-4">
+        <div class="p-4 border rounded h-100 shadow-sm block">
+          <img src="https://static.vecteezy.com/system/resources/previews/010/159/990/non_2x/people-icon-sign-symbol-design-free-png.png" alt="Cadastro de Pessoas" class="mb-3 card-img-small" />
+          <h6 class="text-primary">GESTÃO DE USUÁRIOS</h6>
+          <h4 class="font-weight-bold">Cadastro e Login</h4>
+          <p>Gerencie as informações de alunos, professores e demais usuários do sistema. Acesse o módulo de cadastro e login de pessoas.</p>
+          <a href="/pessoas/" class="block-link-footer">Acessar página →</a>
+        </div>
+      </div>
+
+      <!-- Bloco 2 -->
+      <div class="col-md-4 mb-4">
+        <div class="p-4 border rounded h-100 shadow-sm block">
+          <img src="https://img.icons8.com/ios-filled/100/000000/reading.png" alt="Ensino Técnico" class="mb-3" />
+          <h6 class="text-info">ACERVO</h6>
+          <h4 class="font-weight-bold">Livros</h4>
+          <p>Cadastre, visualize e mantenha atualizado o acervo de livros didáticos disponíveis para empréstimo e organização acadêmica.</p>
+          <a href="/livros/" class="block-link-footer">Acessar página →</a>
+        </div>
+      </div>
+
+      <!-- Bloco 3 -->
+      <div class="col-md-4 mb-4">
+        <div class="p-4 border rounded h-100 shadow-sm block">
+          <img src="https://tse2.mm.bing.net/th/id/OIP.lGgGTY4VQPPjcRf92_TBjAHaHa?r=0&w=626&h=626&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Kit de Livros" class="mb-3 card-img-small" style="max-width: 100px" />
+          <h6 class="text-warning">CONJUNTOS DE LIVROS</h6>
+          <h4 class="font-weight-bold">Kit de Livros</h4>
+          <p>Organize e distribua kits de livros para turmas ou alunos. Gerencie conjuntos com múltiplos materiais didáticos.</p>
+          <a href="/kitlivros/" class="block-link-footer">Acessar página →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Scripts Bootstrap e jQuery -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
