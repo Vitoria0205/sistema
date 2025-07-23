@@ -2,10 +2,10 @@
 <html lang="pt-BR">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Editora</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ocupações</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 
 <body>
@@ -93,27 +93,23 @@
           </ul>
         </div>
       </nav>
-
     <div class="container mt-5">
-        <h2 class="mb-4">Tabela de Editoras</h2>
+        <h2 class="mb-4">Tabela de Ocupações</h2>
         <table class="table">
             <thead>
                 <tr>
-                    <th scope="col">Nome da Editora</th>
-                    <th scope="col">Cidade</th>
+                    <th scope="col">Nome da Ocupação</th>
                 </tr>
             </thead>
             <tbody>
-                {% for editora in editoras %}
+                {% for ocupacao in ocupacoes %}
                 <tr>
-                    <td>{{ editora.nome }}</td>
-                    <td>{{ editora.cidade.nome }}</td>
+                    <td>{{ ocupacao.nome }}</td>
                 </tr>
                 {% endfor %}
             </tbody>
         </table>
     </div>
-
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
