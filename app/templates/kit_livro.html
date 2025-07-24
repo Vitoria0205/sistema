@@ -63,12 +63,14 @@
               <a class="nav-link text-light" href="/livros/">Livros</a>
             </li>
       
+          
             <li class="nav-item">
-              <a class="nav-link text-light" href="/kits/">Kit de Livros</a>
+              <a class="nav-link text-light" href="/kitlivros/">Kit de Livros</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-light" href="/kit-itens/">Itens do Kit Livros</a>
+              <a class="nav-link text-light" href="/kitlivroitens/">Itens do Kit Livros</a>
             </li>
+      
       
             <li class="nav-item">
               <a class="nav-link text-light" href="/emprestimos/">Empréstimos</a>
@@ -105,11 +107,11 @@
                 </tr>
             </thead>
             <tbody>
-                {% for kitlivro in kitlivros %}
+                {% for kit in kitlivros %}
                 <tr>
-                    <td>{{ kitlivro.nome }}</td>
-                    <td>{{ kitlivro.turma.nome }}</td>
-                    <td>{{ kitlivro.data_criacao }}</td>
+                    <td>{{ kit.nome }}</td>
+                    <td>{{ kit.turma.nome }}</td>
+                    <td>{{ kit.data_criacao }}</td>
                 </tr>
                 {% endfor %}
             </tbody>
