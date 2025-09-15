@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Editora</title>
+    <title>Empréstimos</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
 </head>
 
@@ -63,14 +63,12 @@
               <a class="nav-link text-light" href="/livros/">Livros</a>
             </li>
       
-           
             <li class="nav-item">
-              <a class="nav-link text-light" href="/kitlivros/">Kit de Livros</a>
+              <a class="nav-link text-light" href="/kits/">Kit de Livros</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-light" href="/kitlivroitens/">Itens do Kit Livros</a>
+              <a class="nav-link text-light" href="/kit-itens/">Itens do Kit Livros</a>
             </li>
-      
       
             <li class="nav-item">
               <a class="nav-link text-light" href="/emprestimos/">Empréstimos</a>
@@ -97,19 +95,25 @@
       </nav>
 
     <div class="container mt-5">
-        <h2 class="mb-4">Tabela de Editoras</h2>
+        <h2 class="mb-4">Tabela de Empréstimos</h2>
         <table class="table">
             <thead>
                 <tr>
-                    <th scope="col">Nome da Editora</th>
-                    <th scope="col">Cidade</th>
+                    <th scope="col">Pessoa</th>
+                    <th scope="col">Livro</th>
+                    <th scope="col">Item do Kit Livro</th>
+                    <th scope="col">Data de Entrega</th>
+                    <th scope="col">Data de Devolução</th>
                 </tr>
             </thead>
             <tbody>
-                {% for editora in editoras %}
+                {% for emprestimo in emprestimos %}
                 <tr>
-                    <td>{{ editora.nome }}</td>
-                    <td>{{ editora.cidade.nome }}</td>
+                    <td>{{ emprestimo.pessoa.nome }}</td>
+                    <td>{% if emprestimo.livro %}{{ emprestimo.livro.titulo }}{% else %}—{% endif %}</td>
+                    <td>{{ emprestimo.kitlivroitem.kitlivro.nome }}</td>
+                    <td>{{ emprestimo.data_entrega }}</td>
+                    <td>{{ emprestimo.data_devolucao }}</td>
                 </tr>
                 {% endfor %}
             </tbody>

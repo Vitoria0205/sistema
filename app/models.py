@@ -19,7 +19,6 @@ class Ocupacao(models.Model):
 
 class Pessoa(models.Model):
     nome = models.CharField(max_length=100)
-    cpf = models.CharField(max_length=14, default='000.000.000-00')
     cidade = models.ForeignKey(Cidade, on_delete=models.CASCADE)
     ocupacao = models.ForeignKey(Ocupacao, on_delete=models.CASCADE)
     email = models.EmailField()

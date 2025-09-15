@@ -1,126 +1,88 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render,redirect,get_object_or_404
+from .models import *
 from django.views import View
 from django.contrib import messages
-from .models import (
-    Pessoa, Ocupacao, Cidade, Matricula, Turma, Turno, Curso,
-    Livro, KitLivro, KitLivroItem, Editora, Autor,
-    Emprestimo, Devolucao, Atraso, Relatorio
-)
 
 class IndexView(View):
     def get(self, request, *args, **kwargs):
         return render(request, 'index.html')
 
-
-# RF01 – Pessoas
-class PessoasView(View):
+class PessoasView(View):  # RF01
     def get(self, request, *args, **kwargs):
-        pessoas = Pessoa.objects.select_related('cidade', 'ocupacao').all()
+        pessoas = Pessoa.objects.all()
         return render(request, 'pessoa.html', {'pessoas': pessoas})
 
-
-# RF02 – Ocupações
-class OcupacoesView(View):
+class OcupacoesView(View):  # RF02
     def get(self, request, *args, **kwargs):
         ocupacoes = Ocupacao.objects.all()
         return render(request, 'ocupacao.html', {'ocupacoes': ocupacoes})
 
-
-# RF03 – Cidades
-class CidadesView(View):
+class CidadesView(View):  # RF03
     def get(self, request, *args, **kwargs):
         cidades = Cidade.objects.all()
         return render(request, 'cidade.html', {'cidades': cidades})
 
-
-# RF04 – Matrículas
-class MatriculasView(View):
+class MatriculasView(View):  # RF04
     def get(self, request, *args, **kwargs):
-        matriculas = Matricula.objects.select_related('pessoa', 'curso').all()
+        matriculas = Matricula.objects.all()
         return render(request, 'matricula.html', {'matriculas': matriculas})
 
-
-# RF05 – Turmas
-class TurmasView(View):
+class TurmasView(View):  # RF05
     def get(self, request, *args, **kwargs):
         turmas = Turma.objects.all()
         return render(request, 'turma.html', {'turmas': turmas})
 
-
-# RF06 – Turnos
-class TurnosView(View):
+class TurnosView(View):  # RF06
     def get(self, request, *args, **kwargs):
         turnos = Turno.objects.all()
         return render(request, 'turno.html', {'turnos': turnos})
 
-
-# RF07 – Cursos
-class CursosView(View):
+class CursosView(View):  # RF07
     def get(self, request, *args, **kwargs):
-        cursos = Curso.objects.select_related('turno').all()
+        cursos = Curso.objects.all()
         return render(request, 'curso.html', {'cursos': cursos})
 
-
-# RF08 – Livros
-class LivrosView(View):
+class LivrosView(View):  # RF08
     def get(self, request, *args, **kwargs):
-        livros = Livro.objects.select_related('autor', 'editora').all()
+        livros = Livro.objects.all()
         return render(request, 'livro.html', {'livros': livros})
 
-
-# RF09 – Kits de Livro
-class KitLivrosView(View):
+class KitLivrosView(View):  # RF09
     def get(self, request, *args, **kwargs):
-        kits = KitLivro.objects.select_related('turma').all()
+        kits = KitLivro.objects.all()
         return render(request, 'kit_livro.html', {'kits': kits})
 
-
-# RF10 – Itens do Kit de Livro
-class KitLivroItensView(View):
+class KitLivroItensView(View):  # RF10
     def get(self, request, *args, **kwargs):
-        itens = KitLivroItem.objects.select_related('kit_livro', 'livro').all()
+        itens = KitLivroItem.objects.all()
         return render(request, 'kit_livro_item.html', {'itens': itens})
 
-
-# RF11 – Editoras
-class EditorasView(View):
+class EditorasView(View):  # RF11
     def get(self, request, *args, **kwargs):
-        editoras = Editora.objects.select_related('cidade').all()
+        editoras = Editora.objects.all()
         return render(request, 'editora.html', {'editoras': editoras})
 
-
-# RF12 – Autores
-class AutoresView(View):
+class AutoresView(View):  # RF12
     def get(self, request, *args, **kwargs):
-        autores = Autor.objects.select_related('cidade').all()
+        autores = Autor.objects.all()
         return render(request, 'autor.html', {'autores': autores})
 
-
-# RF13 – Empréstimos
-class EmprestimosView(View):
+class EmprestimosView(View):  # RF13
     def get(self, request, *args, **kwargs):
-        emprestimos = Emprestimo.objects.select_related('pessoa', 'livro', 'kit_livro_item').all()
+        emprestimos = Emprestimo.objects.all()
         return render(request, 'emprestimo.html', {'emprestimos': emprestimos})
 
-
-# RF14 – Devoluções
-class DevolucoesView(View):
+class DevolucoesView(View):  # RF14
     def get(self, request, *args, **kwargs):
-        devolucoes = Devolucao.objects.select_related('emprestimo').all()
+        devolucoes = Devolucao.objects.all()
         return render(request, 'devolucao.html', {'devolucoes': devolucoes})
 
-
-# RF15 – Atrasos
-class AtrasosView(View):
+class AtrasosView(View):  # RF15
     def get(self, request, *args, **kwargs):
-        atrasos = Atraso.objects.select_related('pessoa', 'livro', 'kit_livro_item').all()
+        atrasos = Atraso.objects.all()
         return render(request, 'atraso.html', {'atrasos': atrasos})
 
-
-# RF16 – Relatórios
-class RelatoriosView(View):
+class RelatoriosView(View):  # RF16
     def get(self, request, *args, **kwargs):
-        relatorios = Relatorio.objects.select_related(
-            'pessoa', 'livro', 'kit_livro_item', 'emprestimo', 'devolucao', 'atraso'
-        ).all()
+        relatorios = Relatorio.objects.all()
         return render(request, 'relatorio.html', {'relatorios': relatorios})
